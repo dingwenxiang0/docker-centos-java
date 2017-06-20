@@ -10,11 +10,9 @@ ENV CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib:$CLASSPATH
 
 RUN yum -y update \
     && yum -y install wget \
+	&& OHS_COOKIE=`cat /oracle_download_cookies` \
     && mkdir -p /app/tools/java \
     && cd /app/tools/java \
-	&& pwd \
-	&& ll \
-	&& OHS_COOKIE=`cat /oracle_download_cookies` \
     && wget --no-check-certificate --no-cookies --header "Cookie: $OHS_COOKIE oraclelicense=accept-securebackup-cookie;" https://edelivery.oracle.com/akam/otn/java/jdk/6u$JAVA_MINOR_VERSION-b06/jdk-6u$JAVA_MINOR_VERSION-linux-x64.bin \
 	&& chmod 744 jdk-6u$JAVA_MINOR_VERSION-linux-x64.bin \
 	&& ./jdk-6u$JAVA_MINOR_VERSION-linux-x64.bin \
