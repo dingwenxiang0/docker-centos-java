@@ -3,7 +3,6 @@ FROM centos:7
 MAINTAINER Ding Wen Xiang "624380857@qq.com"
 
 ARG JAVA_MINOR_VERSION=45
-ARG COOKIE_KEY=
 
 ENV JAVA_HOME=/app/tools/java/jdk
 ENV PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin
@@ -13,6 +12,8 @@ RUN yum -y update \
     && yum -y install wget \
     && mkdir -p /app/tools/java \
     && cd /app/tools/java \
+	&& pwd \
+	&& ll \
 	&& OHS_COOKIE=`cat /oracle_download_cookies` \
     && wget --no-check-certificate --no-cookies --header "Cookie: $OHS_COOKIE oraclelicense=accept-securebackup-cookie;" https://edelivery.oracle.com/akam/otn/java/jdk/6u$JAVA_MINOR_VERSION-b06/jdk-6u$JAVA_MINOR_VERSION-linux-x64.bin \
 	&& chmod 744 jdk-6u$JAVA_MINOR_VERSION-linux-x64.bin \
