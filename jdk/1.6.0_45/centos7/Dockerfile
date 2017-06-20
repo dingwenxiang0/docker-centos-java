@@ -22,7 +22,7 @@ RUN yum -y update \
     && yum -y remove wget \
     && yum clean all \
     && java -version \
-    && rm -rf jdk-6u$JAVA_MINOR_VERSION-linux-x64.bin
+    && rm -rf jdk-6u$JAVA_MINOR_VERSION-linux-x64.bin \
 	&& rm -rf /tmp/oracle_download_cookies
     
 CMD ["/bin/bash"]
