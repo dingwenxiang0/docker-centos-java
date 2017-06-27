@@ -1,0 +1,28 @@
+FROM centos:7
+
+MAINTAINER Ding Wen Xiang "624380857@qq.com"
+
+ARG JAVA_MINOR_VERSION=45
+
+ENV JRE_HOME=/app/tools/java/jre
+ENV PATH=$PATH:$JRE_HOME/bin
+ENV CLASSPATH=.:$JRE_HOME/lib:$CLASSPATH
+
+ADD https://raw.githubusercontent.com/dingwenxiang0/docker-centos-java/master/oracle_download_cookies /tmp/oracle_download_cookies
+
+RUN yum -y update \
+    && yum -y install wget \
+    && OHS_COOKIE=`cat /tmp/oracle_download_cookies` \
+    && mkdir -p /app/tools/java \
+    && cd /app/tools/java \
+    && wget --no-check-certificate --no-cookies --header "Cookie: $OHS_COOKIE oraclelicense=accept-securebackup-cookie;" https://edelivery.oracle.com/akam/otn/java/jdk/6u$JAVA_MINOR_VERSION-b06/jre-6u$JAVA_MINOR_VERSION-linux-x64.bin \
+    && chmod 744 jre-6u$JAVA_MINOR_VERSION-linux-x64.bin \
+    && ./jre-6u$JAVA_MINOR_VERSION-linux-x64.bin \
+    && ln -s /app/tools/java/jre1.6.0_$JAVA_MINOR_VERSION /app/tools/java/jre \
+    && yum -y remove wget \
+    && yum clean all \
+    && java -version \
+    && rm -rf jre-6u$JAVA_MINOR_VERSION-linux-x64.bin \
+    && rm -rf /tmp/oracle_download_cookies
+
+CMD ["/bin/bash"]
