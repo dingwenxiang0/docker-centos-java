@@ -8,7 +8,7 @@ ENV JAVA_HOME=/app/tools/java/jdk
 ENV PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin
 ENV CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib:$CLASSPATH
 
-COPY ./oracle_download_cookies /tmp/oracle_download_cookies
+COPY oracle_download_cookies /tmp/oracle_download_cookies
 
 RUN yum -y update \
     && yum -y install wget \
