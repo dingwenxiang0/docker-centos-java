@@ -1,5 +1,6 @@
 # Supported tags and respective `Dockerfile` links
 
+ - [`jdk1.7.0_80.c7`, `latest` (jdk1.7.0_80.c7/Dockerfile)](https://github.com/dingwenxiang0/docker-centos-java/blob/jdk1.7.0_80.c7/jdk/1.7.0_80/centos7/Dockerfile)
  - [`jdk1.6.0_45.c7` (jdk1.6.0_45.c7/Dockerfile)](https://github.com/dingwenxiang0/docker-centos-java/blob/jdk1.6.0_45.c7/jdk/1.6.0_45/centos7/Dockerfile)
  
 Subscribe to project updates by watching the [dingwenxiang0/docker-centos-java GitHub repo](https://github.com/dingwenxiang0/docker-centos-java/).
