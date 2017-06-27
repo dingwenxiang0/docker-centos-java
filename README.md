@@ -36,4 +36,4 @@ docker pull dingwenxiang0/centos-java:[TAG]
 
 # Remarks
 
-The cookie `OHS-edelivery.oracle.com-443` in [`oracle_download_cookies`](https://github.com/dingwenxiang0/docker-centos-java/blob/master/oracle_download_cookies) , and this cookie will expired within 24 hours. (guess)
+The cookie `OHS-edelivery.oracle.com-443` in [oracle_download_cookies](https://github.com/dingwenxiang0/docker-centos-java/blob/master/oracle_download_cookies) , and this cookie will expired within 24 hours. (guess)
